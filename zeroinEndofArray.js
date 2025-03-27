@@ -18,22 +18,50 @@
 
 
 
-function shiftZerosToRight(arr) {
-  let nonZeroIndex = 0;
+// function shiftZerosToRight(arr) {
+//   let nonZeroIndex = 0;
 
-  for (let i = 0; i < arr.length; i++) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== 0) {
+//       let temp = arr[i];
+//       arr[i] = arr[nonZeroIndex];
+//       arr[nonZeroIndex] = temp;
+//       nonZeroIndex++;
+//     }
+//   }
+
+//   return arr;
+// }
+
+// let arr = [34, 0, 8, 45, 0, 0, 4];
+// console.log(shiftZerosToRight(arr));
+
+
+
+function shiftZerosToRight(arr) {
+  let n = arr.length;
+  let zeroCount = 0;
+
+  
+  let result = [];
+  for (let i = 0; i < n; i++) {
     if (arr[i] !== 0) {
-      let temp = arr[i];
-      arr[i] = arr[nonZeroIndex];
-      arr[nonZeroIndex] = temp;
-      nonZeroIndex++;
+      result.push(arr[i]);
+    } else {
+      zeroCount++;
     }
   }
 
-  return arr;
+  
+  while (zeroCount > 0) {    //3>0
+    result.push(0);     //
+    zeroCount--;
+  }
+
+  return result;
 }
 
 let arr = [34, 0, 8, 45, 0, 0, 4];
-console.log(shiftZerosToRight(arr));
+console.log(shiftZerosToRight(arr)); 
 
 
